@@ -44,4 +44,4 @@ group :development, :test do
 end
 
 gem 'angularjs-rails'
-gem 'angular-ui-bootstrap-rails' #for bootstrap UI
+gem 'angular-ui-bootstrap-rails' #for bootstrap UI Refer :http://blog.joshsoftware.com/2014/07/17/building-web-apps-with-rails4-and-angularjs-in-15-minutes/
