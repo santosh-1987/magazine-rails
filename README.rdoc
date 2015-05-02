@@ -39,8 +39,8 @@ Magazine 1
 		   \
 		    \_____Comments
 			       1 Reply(1.1)
-				 2 Reply
-				   3 Reply Delete
+						 2 Reply
+				     3 Reply Delete
 					   
 					   
 
@@ -50,6 +50,6 @@ Magazine 1
 		   \
 		    \_____Comments
 			       1 Reply
-				 2 Reply
-				   3 Reply 
-				    4 Reply, Delete
+				     2 Reply
+				     3 Reply
+				     4 Reply, Delete
