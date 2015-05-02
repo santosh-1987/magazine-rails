@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Magazines</h2>
+<%= content_tag(:p,"No Magazine Found") if @journals.empty? %>
+<ul class="list-group" >
+  <% @journals.each do |journal| %>
+    <li class="list-group-item" > <%= link_to journal.name, journal %>  <%= link_to "View/Create Articles", articles_journal_path(journal), :class=> "pull-right"%>
+      <%#= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<%= link_to 'New Magazine', new_journal_path, :class =>"btn btn-default" %>

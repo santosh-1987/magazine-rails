@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="mymagazine">
+<html>
 <head>
   <title>Magazine</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container" ng-view>
+<div class="container">
+  <% if user_signed_in? %>
+    <div class="col-lg-12">
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete,:class=> "pull-right") %>
+    </div>
+  <% end %>
   <%= yield %>
 </div>
 </body>

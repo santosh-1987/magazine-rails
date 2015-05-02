@@ -1,0 +1,17 @@
+<br/>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Articles</div>
+  <div class="panel-body">
+    <% if @articles.present? %>
+      <ul class="list-group">
+        <% @articles.each do |article|%>
+          <li class="list-group-item"><%= article.title %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p> No Articles Found. </p>
+    <% end%>
+  </div>
+  <div class="panel-footer"><%= "#{@articles.count rescue 0} " %> Articles for Magazine <%= @journal.name rescue "" %> <%= content_tag(:span ,(link_to "New Article", new_article_path(@journal)), :class => "label new_article_link label-success pull-right" ) if @journal.present? %> </div>
+</div>

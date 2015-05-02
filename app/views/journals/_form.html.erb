@@ -1,0 +1,17 @@
+<%= form_for @journal, :html => {:class => "form-inline"} do |f| %>
+  <% if @journal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@journal.errors.count, "error") %> prohibited this journal from being saved:</h2>
+      <ul>
+      <% @journal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <label for="name">Name:</label>
+	  <%= f.text_field :name ,:class => "form-control"%>
+  </div>
+    <%= f.submit "Create Magazine", :class => "btn btn-default" %>
+<% end %>

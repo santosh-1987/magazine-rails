@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="col-lg-12">
+  <div class="jumbotron">
+    <h2 class="text-center"><%= @article.title %></h2>
+    <p>
+      <br/>
+      <%= @article.body %>
+    </p>
+    <p class="pull-right">
+      <strong>By:</strong>
+      <%= @article.author %>
+    </p>
+    <p>
+      <strong>Magazine:</strong>
+      <%= @article.journal.name %>
+    </p>
+    <p><%= link_to 'Edit Article', edit_article_path(@article),:class=>"btn btn-primary pull-right" %></p>
+  </div>
+</div>
