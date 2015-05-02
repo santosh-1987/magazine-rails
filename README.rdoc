@@ -1,28 +1,55 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+#############################################
+#              Create a rails application “magazine” to display Articles. 
+#              - A magazine has many articles.
+#                              - An article has a title, body and author
+#                              - An article can have many nested comments and comments can be responded to by other users and should be displayed in a nested format (similar to Reddit)
+#                              - Display all comments on the article#show page
+#                              - Put a form to create comments on the article#show page
+#                              - Users should be able to reply to existing comments
+#                              - Users should be able to delete their own comments, only if there are no nested comments under the comment.
+#              Host the app on Heroku/AWS/Azure/Google for free and share the link.
+#############################################
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+class User
+ has_many :comments 
+end
+
+
+class Magazine
+has_many :articles
+end
+
+class Article
+  title,body,author
+  belongs_to :magazine
+  has_many :comments
+end
+
+class Comment
+ belongs_to :article
+ belongs_to :user
+end
+
+
+Magazine 1
+ \
+  \__  Article1(title, body, author)
+		   \
+		    \_____Comments
+			       1 Reply(1.1)
+				 2 Reply
+				   3 Reply Delete
+					   
+					   
+
+Magazine 1
+ \
+  \__  Article2(title, body, author)
+		   \
+		    \_____Comments
+			       1 Reply
+				 2 Reply
+				   3 Reply 
+				    4 Reply, Delete
