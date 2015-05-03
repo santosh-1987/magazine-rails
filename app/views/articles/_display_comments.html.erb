@@ -1,0 +1,10 @@
+<%#= nested_comments @comments %>
+<ul class="list-group">
+<% @comments.each do |comment| %>
+		<%# byebug %>
+    <li class="list-group-item">
+      <span class='<%= comment.descendants.count > 0 ? "badge glyphicon glyphicon-hand-down" : "badge" %>'><%= comment.descendants.count %></span>
+       <%= comment.body %>
+    </li>
+<% end %>
+</ul>

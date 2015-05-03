@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @comment = Comment.new(:article_id => @article.id) if @article.present?
+    @comments = Comment.where(:article_id => @article.id,:ancestry=>nil).order("created_at asc") if @article.present?
   end
 
   # GET /articles/new
@@ -62,14 +64,30 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
+  def comment
+    if request.xhr?
+      @comment = current_user.comments.new(comment_params)
+      if @comment.save
+        @comments = Comment.where(:article_id => params[:comment][:article_id],:ancestry=>nil).order("created_at asc")
+       @success = "Comment Saved Successfully."
+      else
+        @errors = @comment.errors.full_messages
+      end
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :body, :author, :journal_id)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find_by_id(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    params.require(:article).permit(:title, :body, :author, :journal_id)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body,:article_id,:parent_id)
+  end
 end

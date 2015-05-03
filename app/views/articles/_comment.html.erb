@@ -1,0 +1,12 @@
+<%# byebug %>
+<%=form_for @comment,url: comment_article_path, :html => {:class=>"form-inline",:remote => true } do |f| %>
+  <%= f.hidden_field :parent_id %>
+  <%= f.hidden_field :article_id %>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">Comment</div>
+      <%= f.text_field :body, :class => "form-control" %>
+	    </div>
+  </div>
+  <%= f.submit "Post Comment",:class=>"btn btn-primary" %>
+<% end %>
