@@ -1,5 +1,5 @@
 <%# byebug %>
-<%=form_for @comment,url: comment_article_path, :html => {:class=>"form-inline",:remote => true } do |f| %>
+<%=form_for @comment, :html => {:class=>"form-inline",:remote => true } do |f| %>
   <%= f.hidden_field :parent_id %>
   <%= f.hidden_field :article_id %>
   <div class="form-group">

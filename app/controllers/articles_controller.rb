@@ -65,18 +65,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def comment
-    if request.xhr?
-      @comment = current_user.comments.new(comment_params)
-      if @comment.save
-        @comments = Comment.where(:article_id => params[:comment][:article_id],:ancestry=>nil).order("created_at asc")
-       @success = "Comment Saved Successfully."
-      else
-        @errors = @comment.errors.full_messages
-      end
-    end
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_article
