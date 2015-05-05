@@ -75,8 +75,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :body, :author, :journal_id)
   end
-
-  def comment_params
-    params.require(:comment).permit(:body,:article_id,:parent_id)
-  end
 end

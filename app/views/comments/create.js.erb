@@ -1,0 +1,7 @@
+<% if @comments.present? %>
+$("#comment_div").html("<%= j render 'articles/display_comments' %>");
+$('#comment_modal').modal('hide');
+<% else %>
+alert("<%= @comment.errors.full_messages.join(",").html_safe %>");
+$('#comment_modal').modal('hide');
+<% end %>
