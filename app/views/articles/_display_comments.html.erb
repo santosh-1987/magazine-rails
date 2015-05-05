@@ -1,10 +1,58 @@
-<%#= nested_comments @comments %>
-<ul class="list-group">
-<% @comments.each do |comment| %>
-		<%# byebug %>
-    <li class="list-group-item">
-      <span class='<%= comment.descendants.count > 0 ? "badge glyphicon glyphicon-hand-down" : "badge" %>'><%= comment.descendants.count %></span>
-       <%= comment.body %>
+<!-- START Tree Structure Boot strap-->
+<% if false %>
+<div class="tree well">
+  <ul>
+    <li>
+      <% @comments.each do |comment| %>
+          <span><i class="icon-folder-open"></i> <%= comment.body %></span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+          <ul><%= nested_comments comment %></ul>
+      <% end %>
     </li>
+  </ul>
+</div>
+<!-- STOP Tree Structure Boot strap -->
+<li>
+  <span><i class="icon-minus-sign"></i> Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+  <ul>
+    <li>
+      <span><i class="icon-leaf"></i> Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+    </li>
+    <li>
+      <span><i class="icon-leaf"></i> Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <span><i class="icon-minus-sign"></i> Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+  <ul>
+    <li>
+      <span><i class="icon-leaf"></i> Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+    </li>
+    <li>
+      <span><i class="icon-minus-sign"></i> Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+      <ul>
+        <li>
+          <span><i class="icon-minus-sign"></i> Great Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+          <ul>
+            <li>
+              <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+            </li>
+            <li>
+              <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+        </li>
+        <li>
+          <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span><i class="icon-leaf"></i> Grand Child</span> <a href="#" data-toggle="modal" data-target=".comment_modal">Reply</a>
+    </li>
+  </ul>
+</li>
 <% end %>
-</ul>

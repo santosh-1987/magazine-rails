@@ -46,5 +46,3 @@ development:
 production:
   <<: *default
   database: magazine_production
-  username: magazine
-  password: <%= ENV['MAGAZINE_DATABASE_PASSWORD'] %>

@@ -19,62 +19,10 @@
     </div>
   </div>
   <div class="col-lg-12">
-    <%#= render "display_comments" unless @comments.empty? %>
-    <!-- START Tree Structure Boot strap-->
-    <div class="tree well">
-      <ul>
-        <li>
-          <span><i class="icon-folder-open"></i> Parent</span> <a href="">Goes somewhere</a>
-          <ul>
-            <li>
-              <span><i class="icon-minus-sign"></i> Child</span> <a href="">Goes somewhere</a>
-              <ul>
-                <li>
-                  <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span><i class="icon-minus-sign"></i> Child</span> <a href="">Goes somewhere</a>
-              <ul>
-                <li>
-                  <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                </li>
-                <li>
-                  <span><i class="icon-minus-sign"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                  <ul>
-                    <li>
-                      <span><i class="icon-minus-sign"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
-                      <ul>
-                        <li>
-                          <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
-                        </li>
-                        <li>
-                          <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
-                    </li>
-                    <li>
-                      <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- STOP Tree Structure Boot strap -->
+    <%= render "display_comments" unless @comments.empty? %>
   </div>
   <div class="col-lg-12">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".comment_modal">Comment</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".comment_modal">Comment Article</button>
     <div class="modal fade comment_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">

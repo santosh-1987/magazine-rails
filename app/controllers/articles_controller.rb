@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @comment = Comment.new(:article_id => @article.id) if @article.present?
-    @comments = Comment.where(:article_id => @article.id,:ancestry=>nil).order("created_at asc") if @article.present?
+    # @comments = Comment.where(:article_id => @article.id,:ancestry=>nil).order("created_at asc") if @article.present?
+    @comments = @article.comments.order("created_at") if @article.present?
   end
 
   # GET /articles/new
