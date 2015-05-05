@@ -1,1 +1,5 @@
-<%= nested_comments @comments.arrange(:order => :created_at) %>
+<div class="tree well">
+  <ul>
+    <%= nested_comments @comments.arrange(:order => :created_at) %>
+  </ul>
+</div>
