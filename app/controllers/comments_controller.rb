@@ -59,8 +59,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
+      @article = Article.find_by_id(params[:article_id])
+      @comments = @article.comments.order("created_at") if @article.present?
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {}
     end
   end
 

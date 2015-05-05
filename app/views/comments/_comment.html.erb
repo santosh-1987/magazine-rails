@@ -1,3 +1,6 @@
 <li>
-  <span><i class="icon-folder-open"></i> <%= comment.body %></span> <%= link_to "Reply", new_comment_path(:parent_id => comment,:article_id => comment.article_id), :remote => "true" %> | <%= link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete %>
+  <span><i class="icon-folder-open"></i> <%= comment.body %></span> <%= link_to "Reply", new_comment_path(:parent_id => comment,:article_id => comment.article_id), :remote => "true" %>
+  <% if comment.descendants.count <= 0 %>
+      | <%= link_to "Destroy", comment_path(:id => comment.id,:article_id => comment.article_id), :confirm => "Are you sure?", :remote => "true",:method => :delete %>
+  <% end %>
 </li>
