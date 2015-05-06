@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get "new",:as => "new"
     end
   end
-  resources :comments
+  resources :comments, :only => [:new,:create,:destroy]
 
   # post "articles/comment" => "articles#comment", as: :comment_article
   # The priority is based upon order of creation: first created -> highest priority.
